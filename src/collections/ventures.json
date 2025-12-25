@@ -1,0 +1,26 @@
+[
+	{
+		"name": "MarketBuddy",
+		"role": "Founder & CEO",
+		"description": "Australia's commercial property analytics platform providing real-time market data on 100,000+ properties.",
+		"image": "/assets/images/companies/marketbuddy.png",
+		"url": "https://marketbuddy.com.au",
+		"founded": "2022"
+	},
+	{
+		"name": "Jarrel Estate Agents",
+		"role": "Manager, Commercial Division & IT",
+		"description": "Melbourne real estate agency with roots dating back to 1929. Family business specialising in commercial and residential property.",
+		"image": "/assets/images/companies/jarrel.png",
+		"url": "https://jarrel.com.au",
+		"founded": "1929"
+	},
+	{
+		"name": "Latent Stack",
+		"role": "Founder",
+		"description": "AI consultancy helping businesses move from AI awareness to implementation - building automations, copilots, and systems.",
+		"image": "/assets/images/companies/latentstack.png",
+		"url": "https://latentstack.ai",
+		"founded": "2024"
+	}
+]

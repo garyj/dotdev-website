@@ -1,0 +1,34 @@
+---
+import ventures from "../collections/ventures.json";
+import PageHeading from "../components/page-heading.astro";
+import Company from "../components/company.astro";
+import Layout from "../layouts/main.astro";
+---
+
+<Layout title="Ventures">
+  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
+    <PageHeading
+      title="Ventures"
+      description="The ventures I'm building and involved with - spanning PropTech, real estate, and AI."
+    />
+
+    <div
+      class="z-50 grid items-stretch w-full grid-cols-1 my-8 gap-7 sm:gap-5"
+    >
+      {
+        ventures.map((venture) => {
+          return (
+            <Company
+              name={venture.name}
+              role={venture.role}
+              description={venture.description}
+              image={venture.image}
+              url={venture.url}
+              founded={venture.founded}
+            />
+          )
+        })
+      }
+    </div>
+  </section>
+</Layout>
