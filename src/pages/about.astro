@@ -1,6 +1,4 @@
 ---
-import experiences from '../collections/experiences.json';
-import AboutExperience from '../components/about-experience.astro';
 import PageHeading from '../components/page-heading.astro';
 import Layout from '../layouts/main.astro';
 ---
@@ -9,7 +7,7 @@ import Layout from '../layouts/main.astro';
   <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
     <PageHeading
       title="About Me"
-      description="Hello 👋 I'm a PropTech entrepreneur and Software Engineer from Melbourne, Australia. I'm passionate about startups in the tech and property sectors."
+      description="PropTech entrepreneur bridging two decades of real estate and technology experience."
     />
 
     <img
@@ -17,38 +15,48 @@ import Layout from '../layouts/main.astro';
       class="relative z-30 w-full my-10 rounded-xl"
     />
 
-    <h2 class="mb-2 text-2xl font-bold dark:text-neutral-200">Short Bio</h2>
-    <p
-      class="text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg"
+    <h2 class="mb-2 text-2xl font-bold dark:text-neutral-200">Bio</h2>
+    <div
+      class="space-y-4 text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg"
     >
-      I've spent 20+ years at the intersection of Real Estate & Tech, which led
-      me to found MarketBuddy, a commercial property analytics platform. I love
-      solving problems that others overlook and believe the best innovations
-      come from truly understanding the day-to-day challenges professionals
-      face.
-    </p>
-
-    <h2
-      class="mt-5 mb-2 text-2xl font-bold lg:mt-10 sm:mt-6 dark:text-neutral-200"
-    >
-      Experience
-    </h2>
-    <div class="px-5 py-10">
-      {
-        experiences.map((experience) => {
-          return (
-            <div class="pb-10 border-l border-gray-200 last:border-l-0 dark:border-neutral-700">
-              <AboutExperience
-                dates={experience.dates}
-                role={experience.role}
-                company={experience.company}
-                description={experience.description}
-                logo={experience.logo}
-              />
-            </div>
-          );
-        })
-      }
+      <p>
+        In 2022, I founded <a
+          href="https://marketbuddy.com.au"
+          target="_blank"
+          class="text-indigo-600 underline">MarketBuddy</a
+        >, Australia's commercial property analytics platform that provides
+        real-time market data on 100,000+ properties - solving a problem I
+        personally encountered as a practicing commercial real estate agent.
+      </p>
+      <p>
+        My journey spans both technical and business domains. I hold a Bachelor
+        of Engineering/Computer Science from the University of Melbourne and am
+        a fully licensed Victorian estate agent. I lead the Commercial Division
+        and IT Department at <a
+          href="https://jarrel.com.au"
+          target="_blank"
+          class="text-indigo-600 underline">Jarrel Estate Agents</a
+        >, my family's real estate business with roots dating back to 1929.
+      </p>
+      <p>
+        Beyond MarketBuddy, I founded <a
+          href="https://latentstack.ai"
+          target="_blank"
+          class="text-indigo-600 underline">Latent Stack</a
+        >, an AI consultancy that helps businesses move from AI awareness to AI
+        implementation - building the automations, copilots, and systems that
+        reshape how teams operate.
+      </p>
+      <p>
+        My family's story adds depth to my professional mission. After
+        emigrating from Belarus in 1991, my mother Tanya Jarrel Ph.D. built one
+        of Melbourne's respected real estate practices. I continue this legacy
+        by combining my parents' expertise in technology and property.
+      </p>
+      <p>
+        I believe the best innovations emerge from deeply understanding industry
+        challenges - and I'm building the tools I wished existed when I started.
+      </p>
     </div>
 
     <h2
