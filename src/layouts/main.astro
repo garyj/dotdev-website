@@ -33,10 +33,14 @@ const { title } = Astro.props;
     <script src="../assets/css/main.css"></script>
     <Fragment set:html={import.meta.env.HEADER_INJECT} />
   </head>
-  <body class="antialiased bg-white dark:bg-neutral-950">
+  <body
+    class="antialiased bg-white dark:bg-neutral-950 flex flex-col min-h-screen"
+  >
     <SquareLines />
     <Header />
-    <slot />
+    <div class="flex-1">
+      <slot />
+    </div>
     <Footer />
     <script src="../assets/js/main.js"></script>
     <Fragment set:html={import.meta.env.FOOTER_INJECT} />
