@@ -21,6 +21,7 @@
 	},
 	"packageManager": "pnpm@9.12.2",
 	"dependencies": {
+		"@astrojs/partytown": "^2.1.4",
 		"@astrojs/rss": "^4.0.14"
 	}
 }
