@@ -1,20 +1,18 @@
 ---
-import projects from "../collections/projects.json";
-import PageHeading from "../components/page-heading.astro";
-import Project from "../components/project.astro";
-import Layout from "../layouts/main.astro";
+import projects from '../collections/projects.json';
+import PageHeading from '../components/page-heading.astro';
+import Project from '../components/project.astro';
+import Layout from '../layouts/main.astro';
 ---
 
 <Layout title="My Projects">
   <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
     <PageHeading
       title="My Projects"
-      description="Most of my work is on closed-source projects, but I'm planning to open-source more over the coming months. Check back for updates!"
+      description="Some of the projects I am currently worked on or have built in the past."
     />
 
-    <div
-      class="z-50 grid items-stretch w-full grid-cols-1 my-8 gap-7 sm:gap-5 sm:grid-cols-2"
-    >
+    <div class="mt-5 z-50">
       {
         projects.map((project) => {
           return (
@@ -24,7 +22,7 @@ import Layout from "../layouts/main.astro";
               image={project.image}
               url={project.url}
             />
-          )
+          );
         })
       }
     </div>
