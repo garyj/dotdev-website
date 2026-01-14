@@ -11,7 +11,7 @@ Claude Code for me is like a best friend at work, I use it in my daily coding wo
 
 More and more I find myself relying on [Claude Code plugins](https://code.claude.com/docs/en/discover-plugins) (skills, hooks, commands, etc). Commonly, I would write these myself partly as a learning exercise as it gets you thinking about the underlying mechanics of Claude Code, but also because I have specific needs that are not common to the Claude Code use case, yet work surprisingly well in Claude code. For example processing, summarizing and "Exelifying" (not a word) compliance documents in our Real Estate business.
 
-Since October, when Anthropic released the plugin system for Claude Code, the number of publically available plugins has skyrocketed. And, of course with new shiny tools comes the desire to try them.
+Since October, when Anthropic released the plugin system for Claude Code, the number of publicly available plugins has skyrocketed. And, of course with new shiny tools comes the desire to try them.
 
 After pushing past the anxiety of installing more untrusted code into my machine (subject for another post), I ran into an installation issue. As a native Linux user, I primarily work in the CLI and heavily rely on scripts, aliases, and various shortcuts. The Claude Code plugin installation didn't fit my workflow.
 
@@ -86,7 +86,7 @@ Simple and clean!
 
 ## Why Not Use Third-Party Tools?
 
-When trying to find a solution I came accross the [claude-plugins](https://github.com/Kamalnrf/claude-plugins) CLI community tools, which probably would have done the trick.
+When trying to find a solution I came across the [claude-plugins](https://github.com/Kamalnrf/claude-plugins) CLI community tools, which probably would have done the trick.
 
 But my take: that is another package in my supply chain. Another thing I need to trust. Another thing that could be compromised via dependency confusion, typosquatting, etc. All too often I type `claud` missing the `e` at the end.
 
