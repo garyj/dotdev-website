@@ -1,86 +1,28 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Project Overview
-
-Astro Aria - a minimalist portfolio/blog template built on Astro. Static site with blog posts (Markdown), projects showcase, and about page.
+garyj.dev: one static page built with SvelteKit 3 and Svelte 5 (runes).
 
 ## Commands
 
 ```bash
-pnpm dev          # Development server with hot reload
-pnpm build        # Type check + production build (outputs to dist/)
-pnpm preview      # Preview production build locally
-pnpm check        # Run Biome linter/formatter with auto-fixes
+pnpm dev      # Dev server with hot reload
+pnpm build    # Prerender the site to build/
+pnpm check    # svelte-check type check
+pnpm preview  # Serve the production build locally
 ```
 
-**Node version:** 20 (see `.node-version`)
-**Package manager:** pnpm
+Node 24 (`.node-version`; SvelteKit 3 needs >=22.17). Package manager: pnpm (`packageManager` in `package.json`).
 
-## Architecture
+## Layout
 
-### Content System
+- `src/routes/+page.svelte`: the page, including its `<title>` and meta description.
+- `src/routes/+layout.ts`: `export const prerender = true`, so the whole site is static.
+- `src/app.html`: HTML shell.
+- `static/`: files served as-is from `/` (`favicon.ico`, `robots.txt`).
+- `vite.config.ts`: SvelteKit plugin config with `@sveltejs/adapter-static`. There is no `svelte.config.js`.
 
-- **Blog posts:** Markdown files in `src/content/post/` with frontmatter (title, description, dateFormatted)
-- **Static data:** JSON files in `src/collections/` for menu, projects, experiences
-- **Content schema:** Defined in `src/content/config.js` using Zod
+No CSS framework, linter, or test suite is installed.
 
-### Page Routing
+## Deploy
 
-File-based routing in `src/pages/`:
-- `index.astro` - Home with hero, featured projects/posts
-- `posts.astro` - Blog listing
-- `projects.astro` - Projects showcase
-- `about.astro` - Bio and work history
-- `post/[slug].astro` - Dynamic blog post pages via `getStaticPaths()`
-
-### Layout Hierarchy
-
-- `layouts/main.astro` - Base HTML shell, header, footer, dark mode init
-- `layouts/post.astro` - Blog post wrapper with prose styling
-
-### Dark Mode
-
-- Toggle via `html.dark` class (Tailwind class strategy)
-- Persisted in localStorage key `dark_mode`
-- Inline script in `<head>` prevents flash-of-wrong-theme
-- Toggle logic in `src/assets/js/main.js`
-
-### Styling
-
-- Tailwind-first with Typography plugin for prose
-- Custom animations in `src/assets/css/main.css`
-- Responsive breakpoints: mobile-first (sm:, md:, lg:, xl:)
-
-### Client-side JavaScript
-
-Minimal vanilla JS in `src/assets/js/main.js`:
-- Sticky header on scroll
-- Dark mode toggle
-- Mobile menu
-- Active menu highlighting
-
-### Environment Variables
-
-In `main.astro`:
-- `import.meta.env.HEADER_INJECT` - Inject HTML in head
-- `import.meta.env.FOOTER_INJECT` - Inject HTML before </body>
-
-## Adding Content
-
-**New blog post:** Create `src/content/post/slug.md` with frontmatter:
-```yaml
----
-layout: ../../layouts/post.astro
-title: "Title"
-description: "Description"
-dateFormatted: "Dec 25, 2024"
----
-```
-
-**New project:** Add to `src/collections/projects.json`, image to `public/assets/images/projects/`
-
-**Navigation:** Edit `src/collections/menu.json`
-
-**Work experience:** Edit `src/collections/experiences.json`
+`.github/workflows/ci.yml` runs on push to `main`: `pnpm build`, then `wrangler pages deploy build` to Cloudflare Pages.
