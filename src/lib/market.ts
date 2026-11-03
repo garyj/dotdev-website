@@ -391,7 +391,7 @@ export function startMarket(host: HTMLElement, canvas: HTMLCanvasElement): () =>
 		rings = [];
 	}
 
-	function local(e: PointerEvent) {
+	function local(e: MouseEvent) {
 		const box = host.getBoundingClientRect();
 		return { x: e.clientX - box.left, y: e.clientY - box.top };
 	}
@@ -403,7 +403,7 @@ export function startMarket(host: HTMLElement, canvas: HTMLCanvasElement): () =>
 	function leave() {
 		pointer = null;
 	}
-	function down(e: PointerEvent) {
+	function lease(e: MouseEvent) {
 		if ((e.target as Element).closest('a') || reduced.matches) return;
 		rings.push({ ...local(e), t0: clock });
 		if (rings.length > 6) rings.shift();
@@ -450,7 +450,7 @@ export function startMarket(host: HTMLElement, canvas: HTMLCanvasElement): () =>
 
 	host.addEventListener('pointermove', move);
 	host.addEventListener('pointerleave', leave);
-	host.addEventListener('pointerdown', down);
+	host.addEventListener('click', lease);
 	document.addEventListener('visibilitychange', visibility);
 	reduced.addEventListener('change', motionChange);
 
@@ -462,7 +462,7 @@ export function startMarket(host: HTMLElement, canvas: HTMLCanvasElement): () =>
 		seen.disconnect();
 		host.removeEventListener('pointermove', move);
 		host.removeEventListener('pointerleave', leave);
-		host.removeEventListener('pointerdown', down);
+		host.removeEventListener('click', lease);
 		document.removeEventListener('visibilitychange', visibility);
 		reduced.removeEventListener('change', motionChange);
 	};
