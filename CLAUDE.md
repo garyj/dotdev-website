@@ -25,4 +25,7 @@ No CSS framework, linter, or test suite is installed.
 
 ## Deploy
 
-`.github/workflows/ci.yml` runs on push to `main`: `pnpm build`, then `wrangler pages deploy build` to Cloudflare Pages.
+`.github/workflows/ci.yml` runs on push to `main`: `pnpm build`, then `wrangler pages deploy build` to Cloudflare Pages project `garyj-dot-dev`, whose production branch is `main`.
+
+- Preview any other branch with `gh workflow run ci.yml --ref <branch>`. It deploys to `<branch>.garyj-dot-dev.pages.dev` and leaves garyj.dev alone.
+- The deploy job has no checkout step on purpose. With `pnpm-lock.yaml` present, `wrangler-action` tries to install Wrangler with pnpm, which that job does not set up.
