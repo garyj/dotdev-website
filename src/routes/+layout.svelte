@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href="/favicon.ico" />
+	<link rel="icon" type="image/png" href="/favicon.png" />
 	<link rel="preload" href={archivo} as="font" type="font/woff2" crossorigin="anonymous" />
 </svelte:head>
 

@@ -18,7 +18,7 @@ Node 24 (`.node-version`; SvelteKit 3 needs >=22.17). Package manager: pnpm (`pa
 - `src/routes/+page.svelte`: the page, including its `<title>` and meta description.
 - `src/routes/+layout.ts`: `export const prerender = true`, so the whole site is static.
 - `src/app.html`: HTML shell.
-- `static/`: files served as-is from `/` (`favicon.ico`, `robots.txt`).
+- `static/`: files served as-is from `/` (`favicon.png`, `robots.txt`).
 - `vite.config.ts`: SvelteKit plugin config with `@sveltejs/adapter-static`. There is no `svelte.config.js`.
 
 No CSS framework, linter, or test suite is installed.
