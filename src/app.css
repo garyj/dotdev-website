@@ -14,11 +14,36 @@
 	--lot-7: #13443a;
 	--lot-hot: #d3ef3b;
 
-	--font: 'Archivo Variable', 'Helvetica Neue', Arial, sans-serif;
+	--font: 'Archivo Variable', 'Archivo Fallback', sans-serif;
+	--font-display: 'Archivo Variable', 'Archivo Display Fallback', sans-serif;
 	--gutter: clamp(1.25rem, 3.2vw, 3rem);
 
 	color-scheme: light;
 	scrollbar-color: var(--lot-5) var(--ground);
+}
+
+/*
+ * Arial scaled to Archivo's metrics so the swap does not reflow text.
+ * Values come from Archivo's hhea table and the advance widths of the page's
+ * own copy: body at width 100, the name at width 116 and weight 800.
+ */
+@font-face {
+	font-family: 'Archivo Fallback';
+	src: local('Arial'), local('ArialMT'), local('Helvetica'), local('Liberation Sans');
+	size-adjust: 99.33%;
+	ascent-override: 88.39%;
+	descent-override: 21.14%;
+	line-gap-override: 0%;
+}
+
+@font-face {
+	font-family: 'Archivo Display Fallback';
+	src: local('Arial Bold'), local('Arial-BoldMT'), local('Helvetica Bold'), local('Liberation Sans Bold');
+	font-weight: 100 900;
+	size-adjust: 120.83%;
+	ascent-override: 72.66%;
+	descent-override: 17.38%;
+	line-gap-override: 0%;
 }
 
 *,
