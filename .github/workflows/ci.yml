@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  pull_request:
   workflow_dispatch:
 
 jobs:
@@ -51,7 +52,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy build --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }} --commit-hash=${{ github.sha }} --branch=${{ github.ref_name }}
+          command: pages deploy build --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }} --commit-hash=${{ github.event.pull_request.head.sha || github.sha }} --branch=${{ github.head_ref || github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
 
