@@ -1,8 +1,0 @@
-[
-	{
-		"name": "PyPropertyMe",
-		"description": "Python API wrapper for PropertyMe - Australian property management platform. Features async client, OAuth 2.0, CLI, and sync modules for Airtable/MongoDB.",
-		"image": "/assets/images/projects/pypropertyme.png",
-		"url": "https://pypropertyme.garyj.dev"
-	}
-]

@@ -12,22 +12,24 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
+      - uses: pnpm/action-setup@v6
+
       - uses: actions/setup-node@v4
         with:
           node-version: 'lts/*'
-          cache: 'npm'
+          cache: 'pnpm'
 
-      - run: npm install
+      - run: pnpm install --frozen-lockfile
 
-      - run: npm run build
+      - run: pnpm build
 
-      - run: tree -sh dist
+      - run: tree -sh build
 
       - name: Store docs
         uses: actions/upload-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: build
+          path: build
 
   deploy:
     needs: docs
@@ -39,19 +41,17 @@ jobs:
       statuses: write
 
     steps:
-      - uses: actions/checkout@v6
-
       - uses: actions/download-artifact@v4
         with:
-          name: dist
-          path: dist
+          name: build
+          path: build
 
       - uses: cloudflare/wrangler-action@v3
         id: deploy
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }} --commit-hash=${{ github.sha }} --branch=${{ github.ref_name }}
+          command: pages deploy build --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }} --commit-hash=${{ github.sha }} --branch=${{ github.ref_name }}
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
 
