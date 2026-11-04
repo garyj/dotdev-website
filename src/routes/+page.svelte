@@ -34,7 +34,7 @@
 
 	<section class="site bio-site" data-clear aria-labelledby="about">
 		<h2 id="about" class="sr-only">About Gary</h2>
-		<p class="bio">{BIO}</p>
+		<p class="bio">{#each BIO as part, i (i)}{#if part.href}<a href={part.href}>{part.text}</a>{:else}{part.text}{/if}{/each}</p>
 		<a class="email" href="mailto:{EMAIL}">{EMAIL}</a>
 	</section>
 </main>
